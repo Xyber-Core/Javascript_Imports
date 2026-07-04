@@ -6,10 +6,16 @@ export async function initXyberOverlay() {
 ══════════════════════════════════════════════════════ */
   const CONFIG = {
     badge: {
-      image: "/ImageAssets/XyberLogo.webp",
+      image: "/SRC/Assets/Images/SiteIcons/XyberLogo.webp",
       label: "xybercore",
       version: "v1.0",
       tagline: "Developer Credits",
+      openToWork: true, // toggle off when unavailable — hides the header pill
+    },
+
+    resume: {
+      url: "/SRC/Assets/Docs/resume.pdf", // TODO: replace with your hosted resume link
+      label: "Download Resume",
     },
 
     developers: [
@@ -97,6 +103,15 @@ export async function initXyberOverlay() {
         badge: "Community",
         logo: "https://www.google.com/s2/favicons?domain=discord.com&sz=64",
         color: "rgba(88,101,242,.18)",
+      },
+      {
+        name: "Portfolio",
+        username: "View my work",
+        url: "#", // TODO: replace with your portfolio URL
+        badge: "Website",
+        logo: null,
+        emoji: "🌐",
+        color: "rgba(0,229,160,.18)",
       },
     ],
   };
@@ -306,6 +321,8 @@ export async function initXyberOverlay() {
   .xc-head-pill.ver  { background:rgba(124,77,255,.15); border-color:rgba(124,77,255,.4); color:var(--xc-accent); }
   .xc-head-pill.live { background:rgba(0,229,160,.12);  border-color:rgba(0,229,160,.35); color:var(--xc-good); }
   .xc-head-pill.live::before { content:""; width:5px; height:5px; border-radius:50%; background:var(--xc-good); box-shadow:0 0 6px var(--xc-good); animation:xc-blink 2s infinite; }
+  .xc-head-pill.work { background:rgba(0,229,255,.12); border-color:rgba(0,229,255,.4); color:var(--xc-accent2); }
+  .xc-head-pill.work::before { content:""; width:5px; height:5px; border-radius:50%; background:var(--xc-accent2); box-shadow:0 0 6px var(--xc-accent2); }
   @keyframes xc-blink { 0%,100%{opacity:1} 50%{opacity:.2} }
   .xc-mbtn-close {
     width:30px; height:30px; border-radius:8px;
@@ -439,6 +456,11 @@ export async function initXyberOverlay() {
     color:var(--xc-accent2);
   }
 
+  /* resume CTA */
+  .xc-resume-btn { border-color:rgba(0,229,160,.35); background:rgba(0,229,160,.05); }
+  .xc-resume-btn:hover { border-color:rgba(0,229,160,.6); background:rgba(0,229,160,.1); }
+  .xc-resume-btn .xc-card-name { color:var(--xc-good); }
+
   /* ── Footer ── */
   .xc-mfoot {
     padding:10px 16px; flex-shrink:0;
@@ -516,8 +538,17 @@ export async function initXyberOverlay() {
   `;
   }
 
-  function buildSocials() {
+  function buildContact() {
     return `
+    <div class="xc-sec">Resume</div>
+    <a href="${CONFIG.resume.url}" download class="xc-card xc-resume-btn">
+      <div class="xc-card-logo" style="background:rgba(0,229,160,.15)">📄</div>
+      <div class="xc-card-body">
+        <div class="xc-card-name">${CONFIG.resume.label}</div>
+        <div class="xc-card-desc">PDF · Click to download</div>
+      </div>
+    </a>
+
     <div class="xc-sec">Get In Touch</div>
 
     ${CONFIG.socials
@@ -530,7 +561,7 @@ export async function initXyberOverlay() {
           class="xc-card xc-social"
         >
           <div class="xc-card-logo" style="background:${s.color}">
-            <img src="${s.logo}" loading="lazy" alt="${s.name}">
+            ${s.logo ? `<img src="${s.logo}" loading="lazy" alt="${s.name}" onerror="this.parentElement.textContent='${s.emoji || "🔗"}'">` : s.emoji || "🔗"}
           </div>
 
           <div class="xc-card-body">
@@ -580,6 +611,7 @@ export async function initXyberOverlay() {
           <div class="xc-head-pills">
             <span class="xc-head-pill ver">${CONFIG.badge.version}</span>
             <span class="xc-head-pill live">Live</span>
+            ${CONFIG.badge.openToWork ? `<span class="xc-head-pill work">Open to Work</span>` : ""}
           </div>
         </div>
         <button class="xc-mbtn-close" id="xc-close" aria-label="Close credits overlay">✕</button>
@@ -595,7 +627,7 @@ export async function initXyberOverlay() {
 
     <div class="xc-mpane active" id="xc-pane-developers"><div class="xc-mscroll">${buildDevelopers()}</div></div>
     <div class="xc-mpane"        id="xc-pane-stack"><div class="xc-mscroll">${buildStack()}</div></div>
-    <div class="xc-mpane"        id="xc-pane-socials"><div class="xc-mscroll">${buildSocials()}</div></div>
+    <div class="xc-mpane"        id="xc-pane-socials"><div class="xc-mscroll">${buildContact()}</div></div>
 
     <div class="xc-mfoot">
       <span class="xc-mfoot-sig">Built by <strong>${authorName}</strong></span>
