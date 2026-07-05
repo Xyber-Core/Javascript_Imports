@@ -4,18 +4,19 @@ export async function initXyberOverlay() {
   the overlay. Edit this block to re-skin the overlay for
   a new project — nothing below this needs to change.]
 ══════════════════════════════════════════════════════ */
-  console.log("NEW OVERLAY VERSION");
   const CONFIG = {
     badge: {
-      image: "https://github.com/Xyber-Core/Javascript_Imports/blob/564967998a3b217f0d8b90b10054bd0d99862275/Assets/Images/XyberLogo.webp",
+      image: "https://cdn.jsdelivr.net/gh/Xyber-Core/Javascript_Imports@564967998a3b217f0d8b90b10054bd0d99862275/Assets/Images/XyberLogo.webp",
       label: "xybercore",
       version: "v1.0",
       tagline: "Developer Credits",
-      openToWork: true, // toggle off when unavailable — hides the header pill
+      openToWork: true,
     },
 
+    email: "rikerhoch@gmail.com",
+
     resume: {
-      url: "/SRC/Assets/Docs/resume.pdf", // TODO: replace with your hosted resume link
+      url: "/SRC/Assets/Docs/resume.pdf",
       label: "Download Resume",
     },
 
@@ -26,8 +27,9 @@ export async function initXyberOverlay() {
           {
             name: "Riker Hoch",
             role: "Front-End Developer",
+            intro: "Hey, I'm Riker — I like building interfaces that feel alive, not just functional.",
             badge: "Developer",
-            logo: "Assets/Images/riker.webp",
+            logo: "https://cdn.jsdelivr.net/gh/Xyber-Core/Javascript_Imports@564967998a3b217f0d8b90b10054bd0d99862275/Assets/Images/riker.webp",
             color: "rgba(124,77,255,.18)",
             description: "Built the architecture, JavaScript systems, responsive layouts, animations, navigation and interactive functionality for this project.",
             skills: [
@@ -42,6 +44,65 @@ export async function initXyberOverlay() {
       },
     ],
 
+    projects: [
+      {
+        name: "EA Help Redesign",
+        description: "A support-site concept for EA — vanilla JS, component-based architecture, simulated case management.",
+        url: "#", // TODO: link to the live project or its repo
+        badge: "Case Study",
+        emoji: "🎮",
+        color: "rgba(41,98,255,.15)",
+      },
+      {
+        name: "SyncWeekly",
+        description: "A cloud-synced weekly schedule organizer with a dark glassmorphism UI, built on Firebase.",
+        url: "#", // TODO: link to the live project or its repo
+        badge: "Project",
+        emoji: "🗓️",
+        color: "rgba(124,77,255,.15)",
+      },
+    ],
+
+    // Technologies the SITE ITSELF is built with — update per project
+    siteStack: [
+      {
+        name: "HTML5 & CSS3",
+        role: "Semantic markup with a component-based, dark design system",
+        badge: "Core",
+        emoji: "🧱",
+        color: "rgba(255,255,255,.12)",
+      },
+      {
+        name: "Vanilla JavaScript (ES6+)",
+        role: "No framework — plain JS modules for navigation, animation and interactivity",
+        badge: "Core",
+        emoji: "⚡",
+        color: "rgba(240,219,79,.15)",
+      },
+      {
+        name: "jQuery",
+        role: "Injects shared navigation and footer components across pages",
+        badge: "Library",
+        emoji: "🔧",
+        color: "rgba(10,88,202,.15)",
+      },
+      {
+        name: "Font Awesome",
+        role: "Icon set used throughout the interface",
+        badge: "Icons",
+        emoji: "🎯",
+        color: "rgba(66,133,244,.12)",
+      },
+      {
+        name: "Google Fonts",
+        role: "Web fonts served via CDN",
+        badge: "Typography",
+        emoji: "🔤",
+        color: "rgba(66,133,244,.15)",
+      },
+    ],
+
+    // YOUR personal toolkit — how you work, not what the site runs on
     stack: [
       {
         name: "Visual Studio Code",
@@ -439,7 +500,8 @@ export async function initXyberOverlay() {
   .xc-devcard-body { flex:1; min-width:0; }
   .xc-devcard-name { font-size:.77rem; font-weight:800; color:var(--xc-text); }
   .xc-devcard-role { font-size:.62rem; color:var(--xc-accent); margin-top:2px; font-weight:600; }
-  .xc-devcard-desc { font-size:.61rem; color:var(--xc-muted); margin-top:5px; line-height:1.5; }
+  .xc-devcard-intro { font-size:.68rem; color:var(--xc-text); margin-top:7px; line-height:1.55; font-style:italic; }
+  .xc-devcard-desc { font-size:.61rem; color:var(--xc-muted); margin-top:6px; line-height:1.5; }
 
   /* skill tags */
   .xc-skill-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:9px; }
@@ -454,6 +516,19 @@ export async function initXyberOverlay() {
   .xc-resume-btn { border-color:rgba(0,229,160,.35); background:rgba(0,229,160,.05); }
   .xc-resume-btn:hover { border-color:rgba(0,229,160,.6); background:rgba(0,229,160,.1); }
   .xc-resume-btn .xc-card-name { color:var(--xc-good); }
+
+  /* email card */
+  .xc-email-card { border-color:rgba(0,229,255,.3); background:rgba(0,229,255,.04); }
+  .xc-email-card:hover { border-color:rgba(0,229,255,.55); background:rgba(0,229,255,.08); }
+  .xc-card-clickarea { display:flex; align-items:center; gap:12px; flex:1; min-width:0; text-decoration:none; color:inherit; }
+  .xc-copy-btn {
+    flex-shrink:0; width:32px; height:32px; border-radius:8px;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+    color:var(--xc-muted); cursor:pointer; font-size:.85rem;
+    display:flex; align-items:center; justify-content:center; transition:all .15s;
+  }
+  .xc-copy-btn:hover, .xc-copy-btn:focus-visible { background:rgba(124,77,255,.18); border-color:rgba(124,77,255,.4); color:var(--xc-accent2); }
+  .xc-copy-btn.copied { background:rgba(0,229,160,.18); border-color:rgba(0,229,160,.4); color:var(--xc-good); }
 
   /* ── Footer ── */
   .xc-mfoot {
@@ -494,6 +569,7 @@ export async function initXyberOverlay() {
               <div class="xc-devcard-body">
                 <div class="xc-devcard-name">${d.name}</div>
                 <div class="xc-devcard-role">${d.role}</div>
+                ${d.intro ? `<div class="xc-devcard-intro">${d.intro}</div>` : ""}
                 <div class="xc-devcard-desc">${d.description}</div>
                 ${
                   d.skills && d.skills.length
@@ -511,9 +587,48 @@ export async function initXyberOverlay() {
       .join("");
   }
 
-  function buildStack() {
+  function buildProjects() {
+    if (!CONFIG.projects || !CONFIG.projects.length) return "";
+    return `
+    <div class="xc-sec">Featured Projects</div>
+    ${CONFIG.projects
+      .map(
+        (p) => `
+      <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="xc-card">
+        <div class="xc-card-logo" style="background:${p.color || "rgba(124,77,255,.15)"}">${p.emoji || "🗂️"}</div>
+        <div class="xc-card-body">
+          <div class="xc-card-name">${p.name}</div>
+          <div class="xc-card-desc">${p.description}</div>
+          <span class="xc-badge">${p.badge}</span>
+        </div>
+      </a>`,
+      )
+      .join("")}
+  `;
+  }
+
+  function buildSiteStack() {
     return `
     <div class="xc-sec">Built With</div>
+    ${CONFIG.siteStack
+      .map(
+        (t) => `
+      <div class="xc-card">
+        <div class="xc-card-logo" style="background:${t.color}">${t.emoji || "🧩"}</div>
+        <div class="xc-card-body">
+          <div class="xc-card-name">${t.name}</div>
+          <div class="xc-card-desc">${t.role}</div>
+          <span class="xc-badge">${t.badge}</span>
+        </div>
+      </div>`,
+      )
+      .join("")}
+  `;
+  }
+
+  function buildStack() {
+    return `
+    <div class="xc-sec">My Toolkit</div>
     ${CONFIG.stack
       .map(
         (t) => `
@@ -542,6 +657,18 @@ export async function initXyberOverlay() {
         <div class="xc-card-desc">PDF · Click to download</div>
       </div>
     </a>
+
+    <div class="xc-sec">Email</div>
+    <div class="xc-card xc-email-card">
+      <a class="xc-card-clickarea" href="mailto:${CONFIG.email}">
+        <div class="xc-card-logo" style="background:rgba(0,229,255,.15)">✉️</div>
+        <div class="xc-card-body">
+          <div class="xc-card-name">Email Me</div>
+          <div class="xc-card-desc">${CONFIG.email}</div>
+        </div>
+      </a>
+      <button class="xc-copy-btn" type="button" data-copy="${CONFIG.email}" aria-label="Copy email address" title="Copy email">⧉</button>
+    </div>
 
     <div class="xc-sec">Get In Touch</div>
 
@@ -619,8 +746,8 @@ export async function initXyberOverlay() {
       <button class="xc-mtab" data-tab="socials" role="tab" aria-selected="false">Contact</button>
     </div>
 
-    <div class="xc-mpane active" id="xc-pane-developers"><div class="xc-mscroll">${buildDevelopers()}</div></div>
-    <div class="xc-mpane"        id="xc-pane-stack"><div class="xc-mscroll">${buildStack()}</div></div>
+    <div class="xc-mpane active" id="xc-pane-developers"><div class="xc-mscroll">${buildDevelopers()}${buildProjects()}</div></div>
+    <div class="xc-mpane"        id="xc-pane-stack"><div class="xc-mscroll">${buildSiteStack()}${buildStack()}</div></div>
     <div class="xc-mpane"        id="xc-pane-socials"><div class="xc-mscroll">${buildContact()}</div></div>
 
     <div class="xc-mfoot">
@@ -666,6 +793,26 @@ export async function initXyberOverlay() {
         x.setAttribute("aria-selected", String(active));
       });
       backdrop.querySelectorAll(".xc-mpane").forEach((x) => x.classList.toggle("active", x.id === `xc-pane-${t}`));
+    });
+  });
+
+  backdrop.querySelectorAll(".xc-copy-btn").forEach((btn) => {
+    btn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const text = btn.dataset.copy;
+      try {
+        await navigator.clipboard.writeText(text);
+        const original = btn.textContent;
+        btn.textContent = "✓";
+        btn.classList.add("copied");
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove("copied");
+        }, 1500);
+      } catch (err) {
+        console.warn("Xybercore overlay: clipboard copy failed", err);
+      }
     });
   });
 }
