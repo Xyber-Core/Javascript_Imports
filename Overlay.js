@@ -57,13 +57,6 @@ export async function initXyberOverlay() {
         color: "rgba(242,153,74,.18)",
       },
       {
-        name: "Figma",
-        role: "Wireframing, layout planning and UI/UX design inspiration",
-        badge: "Design",
-        logo: "https://www.google.com/s2/favicons?domain=figma.com&sz=64",
-        color: "rgba(162,89,255,.18)",
-      },
-      {
         name: "Claude",
         role: "Assisted with brainstorming, debugging and code refinement during development",
         badge: "AI Assistant",
