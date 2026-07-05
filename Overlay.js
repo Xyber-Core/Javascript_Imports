@@ -6,7 +6,7 @@ export async function initXyberOverlay() {
 ══════════════════════════════════════════════════════ */
   const CONFIG = {
     badge: {
-      image: "/ImageAssets/XyberLogo.webp",
+      image: "ImageAssets/XyberLogo.webp",
       label: "xybercore",
       version: "v1.0",
       tagline: "Developer Credits",
