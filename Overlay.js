@@ -7,7 +7,7 @@ export async function initXyberOverlay() {
   console.log("NEW OVERLAY VERSION");
   const CONFIG = {
     badge: {
-      image: "ImageAssets/XyberLogo.webp",
+      image: "Assets/Images/XyberLogo.webp",
       label: "xybercore",
       version: "v1.0",
       tagline: "Developer Credits",
@@ -27,7 +27,7 @@ export async function initXyberOverlay() {
             name: "Riker Hoch",
             role: "Front-End Developer",
             badge: "Developer",
-            logo: "ImageAssets/riker.webp",
+            logo: "Image/Assets/riker.webp",
             color: "rgba(124,77,255,.18)",
             description: "Built the architecture, JavaScript systems, responsive layouts, animations, navigation and interactive functionality for this project.",
             skills: [
