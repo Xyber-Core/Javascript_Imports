@@ -4,7 +4,7 @@ export async function initXyberOverlay() {
   the overlay. Edit this block to re-skin the overlay for
   a new project — nothing below this needs to change.]
 ══════════════════════════════════════════════════════ */
-  console.log("Overlay loaded - 2026-06-29 04:35");
+  console.log("NEW OVERLAY VERSION");
   const CONFIG = {
     badge: {
       image: "ImageAssets/XyberLogo.webp",
