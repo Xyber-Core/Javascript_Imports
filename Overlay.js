@@ -27,7 +27,7 @@ export async function initXyberOverlay() {
             name: "Riker Hoch",
             role: "Front-End Developer",
             badge: "Developer",
-            logo: "Image/Assets/riker.webp",
+            logo: "Assets/Images/riker.webp",
             color: "rgba(124,77,255,.18)",
             description: "Built the architecture, JavaScript systems, responsive layouts, animations, navigation and interactive functionality for this project.",
             skills: [
