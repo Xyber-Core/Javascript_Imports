@@ -7,7 +7,7 @@ export async function initXyberOverlay() {
   console.log("NEW OVERLAY VERSION");
   const CONFIG = {
     badge: {
-      image: "Assets/Images/XyberLogo.webp",
+      image: "https://github.com/Xyber-Core/Javascript_Imports/blob/564967998a3b217f0d8b90b10054bd0d99862275/Assets/Images/XyberLogo.webp",
       label: "xybercore",
       version: "v1.0",
       tagline: "Developer Credits",
